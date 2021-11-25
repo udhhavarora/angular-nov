@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Document</title>
+<script src ="form-validation.js"></script>
+
+</head>
+<body>
+<div>
+<label for="username">Username:</label>
+<input type="text" id="username" name="username">
+</div>
+<div>
+<label for="ema">Email (8 characters minimum):</label>
+<input type="text" id="ema" name="email"
+minlength="8" required>
+</div>
+<div>
+<label for="pass">Password (8 characters minimum):</label>
+<input type="password" id="pass" name="password"
+minlength="8" required>
+</div>
+<div>
+<label for="conpass">confirm Password (8 characters minimum):</label>
+<input type="conpassword" id="conpass" name="conpassword"
+minlength="8" required>
+</div>
+<button onclick="username_validation">Register</button></body>
+</html>
