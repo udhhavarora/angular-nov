@@ -1,1 +1,16 @@
-<p>login works!</p>
+<div class="container mt-5">
+    <div class="form-group">
+        <label for="username" class="form-label mt-4">Username</label>
+        <input type="text" class="form-control" id="userame" aria-describedby="username"
+            placeholder="Enter username">
+    </div>
+    <div class="form-group">
+        <label for="password" class="form-label mt-2">Password</label>
+        <input type="password" class="form-control" id="password" aria-describedby="password"
+            placeholder="Enter password">
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary mt-2" (click)="login()">Login</button>
+    </div>
+
+</div>
