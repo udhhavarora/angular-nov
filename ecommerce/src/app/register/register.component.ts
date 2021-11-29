@@ -27,6 +27,8 @@ export class RegisterComponent implements OnInit {
     console.log(this.register);
   }
   
+  countries = [{name:'India',countryCode:'IN'},
+{name:'United States of America', countryCode:'USA'}];
 
 
 }
