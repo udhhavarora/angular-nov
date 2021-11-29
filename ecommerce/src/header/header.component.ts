@@ -11,6 +11,9 @@ import {Component} from '@angular/core';
 
 export class HeaderComponent{
 title ="DBS Bank";
-navitems = ['Home','Sports','Apparel','Cars',"Bikes","Cars"
-]; //databinding
-}  
+navItems=[{path:"",display:"Home"},
+    {path:"login",display:"Login"},
+    {path:"register",display:"Register"}
+// navitems = ['Home','Sports','Apparel','Cars',"Bikes","Cars"
+// ]; //databinding
+]}  

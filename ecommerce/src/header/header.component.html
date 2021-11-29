@@ -1,41 +1,26 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" fgid="8252">
-    <div class="container-fluid" fgid="8258">
-      <a class="navbar-brand" href="#" fgid="8264">{{title}}</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">{{title}}</a>
+      <button class="navbar-toggler" type="button" 
+      data-bs-toggle="collapse" 
+      data-bs-target="#navbarColor01" 
+      aria-controls="navbarColor01" 
+      aria-expanded="false"
+       aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarColor02" fgid="8271">
-        <ul class="navbar-nav me-auto" fgid="8277">
-          <li class="nav-item" *ngFor="let item of navitems">
-            <a class="nav-link active" href="#" fgid="8289">{{item}} 
-                <!-- databinding -->
-              <span class="visually-hidden" fgid="8296">(current)</span>
+  
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item" 
+           *ngFor="let item of navItems">
+            <a class="nav-link active" 
+            [routerLink]="item.path">{{item.display}}
             </a>
           </li>
-          <!-- <li class="nav-item" fgid="8303">
-            <a class="nav-link" href="#" fgid="8309">{{navitems[1]}}</a>
-          </li>
-          <li class="nav-item" fgid="8316">
-            <a class="nav-link" href="#" fgid="8322">{{navitems[2]}}</a>
-          </li>
-          <li class="nav-item" fgid="8329">
-            <a class="nav-link" href="#" fgid="8335">{{navitems[3]}}</a>
-          </li>
-          <li class="nav-item dropdown" fgid="8342">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" fgid="8348">Dropdown</a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Separated link</a>
-            </div>
-          </li> -->
+          
         </ul>
-        <form class="d-flex" fgid="8356">
-          <input class="form-control me-sm-2" type="text" placeholder="Search" fgid="8362">
-          <button class="btn btn-secondary my-2 my-sm-0" type="submit" fgid="8371">Search</button>
-        </form>
+      
       </div>
     </div>
   </nav>
