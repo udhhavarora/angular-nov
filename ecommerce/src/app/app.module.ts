@@ -6,7 +6,6 @@ import {HttpClientModule} from '@angular/common/http'
 
 import { FooterComponent } from 'src/footer/footer.component';
 import { ProductDetailsComponent } from 'src/product-details/product-details.component';
-import { ProductComponent } from 'src/products/products.component';
 import { HeaderComponent } from '../header/header.component';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -20,14 +19,14 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    ProductComponent,
     ProductDetailsComponent,
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
     HomeComponent,
     ForgotpasswordComponent,
-    ResetpasswordComponent
+    ResetpasswordComponent,
+    
     
   ],
   imports: [
