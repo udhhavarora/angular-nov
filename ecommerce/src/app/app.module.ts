@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
+import {HttpClientModule} from '@angular/common/http'
+
 import { FooterComponent } from 'src/footer/footer.component';
 import { ProductDetailsComponent } from 'src/product-details/product-details.component';
 import { ProductComponent } from 'src/products/products.component';
@@ -31,6 +33,7 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {path : "login",component:LoginComponent},
       {path : "register",component:RegisterComponent},

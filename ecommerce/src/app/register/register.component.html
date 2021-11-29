@@ -26,9 +26,9 @@
     </div>
     <div class="form-group">
         <label for="country" class="form-label mt-2">Country</label>
-        <select class="form-control" id="country">
+        <select class="form-control" id="country" [(ngModel)]="register.country">
             <option value="">Select Country</option>
-            <option value="c.countryCode" *ngFor="let c of countries">{{c.name}}</option>
+            <option value={{c.name}} *ngFor="let c of countries">{{c.name}}</option>
         </select>
     </div>
     <div class="form-group">
