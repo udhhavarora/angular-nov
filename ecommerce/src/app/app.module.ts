@@ -14,6 +14,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { ProductsNewComponent } from './products-new/products-new.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +27,7 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
     HomeComponent,
     ForgotpasswordComponent,
     ResetpasswordComponent,
+    ProductsNewComponent,
     
     
   ],
@@ -39,7 +41,8 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
       {path : "forgotpassword",component:ForgotpasswordComponent},
       {path : "reset",component:ResetpasswordComponent},
       {path : "profile",component:ProfileComponent},
-      {path : "",component:HomeComponent}
+      {path : "",component:HomeComponent},
+      {path:"products",component:ProductsNewComponent}
 
 ])
   ],
