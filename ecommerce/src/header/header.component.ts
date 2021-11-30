@@ -13,7 +13,8 @@ export class HeaderComponent{
 title ="DBS Bank";
 navItems=[{path:"",display:"Home"},
     {path:"login",display:"Login"},
-    {path:"register",display:"Register"}
+    {path:"register",display:"Register"},
+    {path:"products",display:"Products"}
 // navitems = ['Home','Sports','Apparel','Cars',"Bikes","Cars"
 // ]; //databinding
 ]}  

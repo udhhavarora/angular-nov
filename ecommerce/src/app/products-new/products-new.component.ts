@@ -18,6 +18,11 @@ export class ProductsNewComponent implements OnInit {
     this.productSvc.getProductsFromApi()
     .then((result:any)=>{
       console.log(result);
+      if(result.length>0){
+        result = result.map((item:any)=>{
+          return {...item,inOrder:0}
+        })
+      }
       this.productSvc.setProducts(result);
       this.fetchProductsFromService();
     })
@@ -33,6 +38,8 @@ export class ProductsNewComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+ 
  
 
 }
