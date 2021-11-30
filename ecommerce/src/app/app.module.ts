@@ -5,7 +5,7 @@ import {RouterModule} from '@angular/router';
 
 
 import { HeaderComponent } from '../header/header.component';
-
+import { ProductComponent } from './products/products.component';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
@@ -17,7 +17,7 @@ import { RegisterComponent } from './user/register/register.component';
 import { ForgotpasswordComponent } from './user/forgotpassword/forgotpassword.component';
 import { ResetpasswordComponent } from './user/resetpassword/resetpassword.component';
 import { ProfileComponent } from './user/profile/profile.component';
-import { ProductsNewComponent } from './products-new/products-new.component';
+import { ProductsNewComponent } from './products/products-new/products-new.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { ProductsNewComponent } from './products-new/products-new.component';
     //directives
     AppComponent,
     HeaderComponent,
-    ProductsComponent,
+    ProductComponent,
     HomeComponent,
     PhonePipe
   ],
