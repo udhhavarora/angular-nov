@@ -38,7 +38,18 @@ export class ProductsNewComponent implements OnInit {
 
   ngOnInit(): void {
   }
+addToCart(p:any){
+  p.inOrder +=1;
+  this.productSvc.setProducts(this.products)
+}
+removeFromCart(p:any){
+  
+  if(p.inOrder>=1){
+    p.inOrder -=1;
 
+  }
+  this.productSvc.setProducts(this.products)
+}
  
  
 

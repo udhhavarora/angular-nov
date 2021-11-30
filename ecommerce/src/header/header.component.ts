@@ -1,5 +1,6 @@
 //Creating a component
 import {Component} from '@angular/core';
+import { ProductsvcService } from 'src/app/productsvc.service';
 
 //metadata of the component
 @Component({
@@ -10,6 +11,10 @@ import {Component} from '@angular/core';
 })
 
 export class HeaderComponent{
+    constructor(private productSvc:ProductsvcService){
+
+
+    }
 title ="DBS Bank";
 navItems=[{path:"",display:"Home"},
     {path:"login",display:"Login"},
@@ -17,4 +22,14 @@ navItems=[{path:"",display:"Home"},
     {path:"products",display:"Products"}
 // navitems = ['Home','Sports','Apparel','Cars',"Bikes","Cars"
 // ]; //databinding
-]}  
+]; 
+
+totalProducts = {
+    count:0
+}
+getTotalProducts(){
+    return this.productSvc.getProducts().filter((x:any)=>x.inOrder>0).length;
+    }
+
+
+}
