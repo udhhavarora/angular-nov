@@ -1,5 +1,7 @@
+import { isNgTemplate } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { ProductsvcService } from '../productsvc.service';
+import { ProductsvcService } from 'src/app/productsvc.service';
+
 
 @Component({
   selector: 'app-products-new',
@@ -7,50 +9,47 @@ import { ProductsvcService } from '../productsvc.service';
   styleUrls: ['./products-new.component.css']
 })
 export class ProductsNewComponent implements OnInit {
-  products:any
-  constructor(private productSvc:ProductsvcService) {
+  products: any
+  constructor(private productSvc: ProductsvcService) {
     this.fetchProductsFromService();
-    if(this.products.length==0){
+    if (this.products.length == 0) {
       this.loadProductsFromApi();
     }
   }
-  loadProductsFromApi(){
+  loadProductsFromApi() {
     this.productSvc.getProductsFromApi()
-    .then((result:any)=>{
-      console.log(result);
-      if(result.length>0){
-        result = result.map((item:any)=>{
-          return {...item,inOrder:0}
-        })
-      }
-      this.productSvc.setProducts(result);
-      this.fetchProductsFromService();
-    })
-    .catch((ex:any)=>{
-      console.log(ex);
-    })
+      .then((result: any) => {
+        console.log(result);
+        if (result.length > 0) {
+          result = result.map((item: any) => {
+            return { ...item, inOrder: 0 }
+          })
+        }
+        this.productSvc.setProducts(result);
+        this.fetchProductsFromService();
+      })
+      .catch((ex: any) => {
+        console.log(ex);
+      })
   }
-  fetchProductsFromService(){
+  fetchProductsFromService() {
     this.products = this.productSvc.getProducts();
   }
-   
-
 
   ngOnInit(): void {
   }
-addToCart(p:any){
-  p.inOrder +=1;
-  this.productSvc.setProducts(this.products)
-}
-removeFromCart(p:any){
-  
-  if(p.inOrder>=1){
-    p.inOrder -=1;
+  addToCart(p: any) {
+    p.inOrder += 1;
+    this.productSvc.setProducts(this.products)
+  }
+  removeFromCart(p: any) {
+    if (p.inOrder >= 1) {
+      p.inOrder -= 1;
+      this.productSvc.setProducts(this.products)
+    }
 
   }
-  this.productSvc.setProducts(this.products)
-}
- 
- 
-
+  //add to cart
+  //remove from cart
+  // setProducts always need to updated.
 }
