@@ -14,7 +14,18 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+logincreds={
+  "Email":"",
+  "Password":"",
+  "adminID":"",
+  "storeID":"",
+  "StoreNumber":"",
+  "CounterNumber":"",
+  "PinNumber":"",
+  "RoleName":""}
+
 login(){
-  console.log("Logged In!");
+  this.dataSvc.login(this.logincreds);
+  // console.log("Logged In!");
 }
 }

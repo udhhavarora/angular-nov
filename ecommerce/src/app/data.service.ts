@@ -30,4 +30,27 @@ export class DataService {
   getCountryList(){
     return this.countryList;
   }
+register(payload:any){
+let url ='http://vegapay-staging.vegawallet.com/local/v1/register';
+
+this.httpClient.post(url,payload).toPromise().then((x: any) => {
+        console.log(x);
+           
+    }).catch(ex=>{
+        console.log(ex);
+      });
+
+}
+login(payload:any){
+  let url ='http://vegapay-staging.vegawallet.com/local/v1/signin';
+  
+  this.httpClient.post(url,payload).toPromise().then((x: any) => {
+          console.log(x);
+             
+      }).catch(ex=>{
+          console.log(ex);
+        });
+  
+  }
+
 }

@@ -7,14 +7,14 @@ import { RegisterComponent } from "./register/register.component";
 import { ResetpasswordComponent } from "./resetpassword/resetpassword.component";
 
 @NgModule({
-    declarations:
-     [LoginComponent, 
-        RegisterComponent,
-         ForgotpasswordComponent,
-          ResetpasswordComponent, ProfileComponent],
-    providers: [],
-    imports: [FormsModule],
-    exports: [LoginComponent, RegisterComponent, ForgotpasswordComponent, ResetpasswordComponent, ProfileComponent]
+  declarations:
+    [LoginComponent,
+      RegisterComponent,
+      ForgotpasswordComponent,
+      ResetpasswordComponent, ProfileComponent],
+  providers: [],
+  imports: [FormsModule],
+  exports: [LoginComponent, RegisterComponent, ForgotpasswordComponent, ResetpasswordComponent, ProfileComponent]
 })
 export class UserModule {
 

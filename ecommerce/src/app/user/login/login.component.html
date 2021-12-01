@@ -1,12 +1,12 @@
 <div class="container mt-5">
     <div class="form-group">
-        <label for="username" class="form-label mt-4">Username</label>
-        <input type="text" class="form-control" id="userame" aria-describedby="username"
-            placeholder="Enter username">
+        <label for="email" class="form-label mt-4">Email</label>
+        <input type="email" class="form-control" id="email" [(ngModel)] ="logincreds.Email" aria-describedby="username"
+            placeholder="">
     </div>
     <div class="form-group">
         <label for="password" class="form-label mt-2">Password</label>
-        <input type="password" class="form-control" id="password" aria-describedby="password"
+        <input type="password" class="form-control" id="password" [(ngModel)] ="logincreds.Password" aria-describedby="password"
             placeholder="Enter password">
     </div>
     <div class="form-group">

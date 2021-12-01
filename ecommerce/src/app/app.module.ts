@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from '@angular/common/http'
-import {RouterModule} from '@angular/router';
+import { HttpClientModule } from '@angular/common/http'
+import { RouterModule } from '@angular/router';
 
 
 import { HeaderComponent } from '../header/header.component';
@@ -37,14 +37,14 @@ import { ProductsNewComponent } from './products/products-new/products-new.compo
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot([
-      {path:"login",component:LoginComponent},
-      {path:"register",component:RegisterComponent},
-      {path:"forgotpassword",component:ForgotpasswordComponent},
-      {path:"reset",component:ResetpasswordComponent},
-      {path:"profile",component:ProfileComponent},
-      {path:"home",component:HomeComponent},
-      {path:"products",component:ProductsNewComponent},
-      {path:"",component:HomeComponent}
+      { path: "login", component: LoginComponent },
+      { path: "register", component: RegisterComponent },
+      { path: "forgotpassword", component: ForgotpasswordComponent },
+      { path: "reset", component: ResetpasswordComponent },
+      { path: "profile", component: ProfileComponent },
+      { path: "home", component: HomeComponent },
+      { path: "products", component: ProductsNewComponent },
+      { path: "", component: HomeComponent }
     ])
   ],
   providers: [
