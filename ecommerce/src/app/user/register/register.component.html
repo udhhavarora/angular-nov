@@ -48,19 +48,63 @@ novalidate
     </div>
     <div class="form-group">
         <label for="companyname" class="form-label mt-2">Company Name</label>
-        <input type="text" class="form-control" id="companyname" [(ngModel)]="register.CompanyName"
-            aria-describedby="companyname" placeholder="">
+        <input type="text"
+        name="companyname"
+        #companyname="ngModel"
+         class="form-control"
+          id="companyname"
+           [(ngModel)]="register.CompanyName"
+            aria-describedby="companyname" placeholder="Enter Company Name"
+            required
+            pattern="/^[a-zA-Z ]*$/"
+            >
+            <div *ngIf="companyname.invalid" class ="text-danger">
+                <div *ngIf="companyname.errors && companyname.errors['required']">Company Name is required.</div>
+                <div *ngIf="companyname.errors && companyname.errors['pattern']">Enter a valid name.</div>
+                </div>
+
     </div>
     <div class="form-group">
         <label for="companyaddress" class="form-label mt-2">Company Address</label>
-        <input type="text" class="form-control" id="companyaddress" [(ngModel)]="register.CompanyAddress"
-            aria-describedby="companyaddress" placeholder="">
+        <input type="text"
+        name="companyaddress"
+        #companyaddress ="ngModel"
+        class="form-control" 
+        id="companyaddress"
+        [(ngModel)]="register.CompanyAddress"
+            aria-describedby="companyaddress" placeholder=""
+            required
+            >
+            <div *ngIf="companyaddress.invalid" class ="text-danger">
+                <div *ngIf="companyaddress.errors && companyaddress.errors['required']">Company Address is required.</div>
+                
+                </div>
+
     </div>
     <div class="form-group">
-        <label for="password" class="form-label mt-2">Password</label>
-        <input type="password" class="form-control" id="password" [(ngModel)]="register.Password"
-            aria-describedby="password" placeholder="">
-    </div>
+        <label for="password" class="form-label mt-2"><strong>Password</strong>
+            <br><ul> <li>Must contain at least 1 lowercase alphabetical character</li>
+                <li>Must contain at least 1 uppercase alphabetical character</li>
+                <li>Must contain at least 1 numeric character</li>
+                <li>Must contain at least one special character</li>
+                <li>Must be eight characters or longer</li>
+                </ul>          
+        </label>
+        <input type="password"
+        name="password"
+        #password="ngModel"
+        class="form-control" id="password" [(ngModel)]="register.Password"
+            aria-describedby="password" placeholder=""
+            required
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+            <div *ngIf="password.invalid" class ="text-danger">
+                <div *ngIf="password.errors && password.errors['required']">Password is required.</div>
+                <div *ngIf="password.errors && password.errors['pattern']">Enter a valid password.</div>
+                <!-- <div *ngIf="password.errors && password.errors['minlength']">Enter a valid password.</div> -->
+                </div>
+    
+    
+        </div>
     <div class="form-group">
         <label for="confirmpassword" class="form-label mt-2">Confirm Password</label>
         <input type="password" class="form-control" id="confirmpassword" [(ngModel)]="register.confirmPassword"
@@ -68,8 +112,18 @@ novalidate
     </div>
     <div class="form-group">
         <label for="roleid" class="form-label mt-2">Role Id</label>
-        <input type="text" class="form-control" id="roleid" [(ngModel)]="register.RoleID" aria-describedby="roleid"
-            placeholder="">
+        <input type="text"
+        name="roleid"
+        #roleid="ngModel"
+        class="form-control" id="roleid" [(ngModel)]="register.RoleID" aria-describedby="roleid"
+            placeholder="Enter Role ID"
+            required
+            pattern="[0-9]">
+            <div *ngIf="roleid.invalid" class ="text-danger">
+                <div *ngIf="roleid.errors && roleid.errors['required']">Role ID is required.</div>
+                <div *ngIf="roleid.errors && roleid.errors['pattern']">Enter a valid Role ID.</div>
+                <!-- <div *ngIf="password.errors && password.errors['minlength']">Enter a valid password.</div> -->
+                </div>
     </div>
     <!-- <div class="form-group">
         <label for="country" class="form-label mt-2">Country</label>
