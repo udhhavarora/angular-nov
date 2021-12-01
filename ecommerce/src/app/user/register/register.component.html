@@ -1,4 +1,28 @@
-<form name="registerForm" #f="ngForm" (ngSubmit)="f.form.valid" novalidate>
+<div class="container mt-5">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="email" class="form-label mt-4">Email address</label>
+            <input type="text"
+             class="form-control"
+              id="email" 
+              aria-describedby="email" 
+              placeholder="Enter email"
+              formControlName="email"
+              
+              >
+              <div *ngIf="registerFormControls['email']&& registerFormControls['email']['errors']">
+                <div class="text-danger" *ngIf="registerFormControls['email']['errors']['required']">Email is needed</div>
+              </div>
+        </div>
+
+
+        <div class="form-group">
+            <button class="btn btn-primary" (click)="registerUser()">Register</button>
+        </div>
+    </form>
+</div>
+
+<!-- <form name="registerForm" #f="ngForm" (ngSubmit)="f.form.valid" novalidate>
     <div class="container mt-5">
         <div class="form-group">
             <label for="firstname" class="form-label mt-4">First Name</label>
@@ -67,7 +91,7 @@
             <div *ngIf="password.invalid" class="text-danger">
                 <div *ngIf="password.errors && password.errors['required']">Password is required.</div>
                 <div *ngIf="password.errors && password.errors['pattern']">Enter a valid password.</div>
-                <!-- <div *ngIf="password.errors && password.errors['minlength']">Enter a valid password.</div> -->
+                <div *ngIf="password.errors && password.errors['minlength']">Enter a valid password.</div> 
             </div>
 
 
@@ -89,10 +113,10 @@
             <div *ngIf="roleid.invalid" class="text-danger">
                 <div *ngIf="roleid.errors && roleid.errors['required']">Role ID is required.</div>
                 <div *ngIf="roleid.errors && roleid.errors['pattern']">Enter a valid Role ID.</div>
-                <!-- <div *ngIf="password.errors && password.errors['minlength']">Enter a valid password.</div> -->
+                 <div *ngIf="password.errors && password.errors['minlength']">Enter a valid password.</div> 
             </div>
         </div>
-        <!-- <div class="form-group">
+         <div class="form-group">
         <label for="country" class="form-label mt-2">Country</label>
         <select class="form-control" id="country" [(ngModel)]="register.country">
             <option value="">Select Country</option>
@@ -110,10 +134,10 @@
             <input type="radio" name="gender" value="M" [(ngModel)]="register.gender"> Male
             <input type="radio" name="gender" value="F" [(ngModel)]="register.gender"> Female
         </div>
-    </div> -->
+    </div> 
         <div class="form-group">
-            <!-- <button class="btn btn-primary" (click)="registerUser()">Register</button> -->
+            <!-- <button class="btn btn-primary" (click)="registerUser()">Register</button> 
             <button class="btn btn-primary" type="submit">Register</button>
         </div>
     </div>
-</form>
+</form> -->
