@@ -41,7 +41,7 @@ export class RegisterComponent implements OnInit {
   registerUser() {
     this.dataSvc.register(this.register);
     console.log(this.register);
-    
+
   }
 
   countries = [{ name: 'India', countryCode: 'IN' },

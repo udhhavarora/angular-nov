@@ -1,131 +1,98 @@
-<form name="registerForm"
-#f = "ngForm"
-(ngSubmit)="f.form.valid"
-novalidate
->
-<div class="container mt-5">
-    <div class="form-group">
-        <label for="firstname" class="form-label mt-4">First Name</label>
-        <input type="text" class="form-control"
-        name="firstname"
-        #firstname = "ngModel"
-
-        id="firstname" [(ngModel)]="register.Firstname"
-            aria-describedby="firstname" placeholder="" required>
-            <div *ngIf="firstname.invalid" class ="text-danger">
+<form name="registerForm" #f="ngForm" (ngSubmit)="f.form.valid" novalidate>
+    <div class="container mt-5">
+        <div class="form-group">
+            <label for="firstname" class="form-label mt-4">First Name</label>
+            <input type="text" class="form-control" name="firstname" #firstname="ngModel" id="firstname"
+                [(ngModel)]="register.Firstname" aria-describedby="firstname" placeholder="" required>
+            <div *ngIf="firstname.invalid" class="text-danger">
                 <div *ngIf="firstname.errors && firstname.errors['required']">First Name is required.</div>
-                </div>
-    
-    
+            </div>
+
+
         </div>
-    <div class="form-group">
-        <label for="lastname" class="form-label mt-2">Last Name</label>
-        <input type="text" class="form-control" id="lastname" [(ngModel)]="register.Lastname"
-            aria-describedby="lastname" placeholder="" required>
-            <div *ngIf="firstname.invalid" class ="text-danger">
+        <div class="form-group">
+            <label for="lastname" class="form-label mt-2">Last Name</label>
+            <input type="text" class="form-control" id="lastname" [(ngModel)]="register.Lastname"
+                aria-describedby="lastname" placeholder="" required>
+            <div *ngIf="firstname.invalid" class="text-danger">
                 <div *ngIf="firstname.errors && firstname.errors['required']">Last Name is required.</div>
-                </div>
-    </div>
-    <div class="form-group">
-        <label for="email"
-         class="form-label mt-2">Enter Email</label>
-        <input type="email" 
-        name="email"
-        #email="ngModel"
-        class="form-control" 
-        id="email" 
-        [(ngModel)]="register.Email"
-         aria-describedby="email"
-            placeholder="Enter Email"
-            required
-            pattern = "^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
-            
-            >
-            <div *ngIf="email.invalid" class ="text-danger">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email" class="form-label mt-2">Enter Email</label>
+            <input type="email" name="email" #email="ngModel" class="form-control" id="email"
+                [(ngModel)]="register.Email" aria-describedby="email" placeholder="Enter Email" required
+                pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">
+            <div *ngIf="email.invalid" class="text-danger">
                 <div *ngIf="email.errors && email.errors['required']">Email is required.</div>
                 <div *ngIf="email.errors && email.errors['pattern']">Enter a valid Email.</div>
-                </div>
-    </div>
-    <div class="form-group">
-        <label for="companyname" class="form-label mt-2">Company Name</label>
-        <input type="text"
-        name="companyname"
-        #companyname="ngModel"
-         class="form-control"
-          id="companyname"
-           [(ngModel)]="register.CompanyName"
-            aria-describedby="companyname" placeholder="Enter Company Name"
-            required
-            pattern="/^[a-zA-Z ]*$/"
-            >
-            <div *ngIf="companyname.invalid" class ="text-danger">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="companyname" class="form-label mt-2">Company Name</label>
+            <input type="text" name="companyname" #companyname="ngModel" class="form-control" id="companyname"
+                [(ngModel)]="register.CompanyName" aria-describedby="companyname" placeholder="Enter Company Name"
+                required pattern="/^[a-zA-Z ]*$/">
+            <div *ngIf="companyname.invalid" class="text-danger">
                 <div *ngIf="companyname.errors && companyname.errors['required']">Company Name is required.</div>
                 <div *ngIf="companyname.errors && companyname.errors['pattern']">Enter a valid name.</div>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label for="companyaddress" class="form-label mt-2">Company Address</label>
+            <input type="text" name="companyaddress" #companyaddress="ngModel" class="form-control" id="companyaddress"
+                [(ngModel)]="register.CompanyAddress" aria-describedby="companyaddress" placeholder="" required>
+            <div *ngIf="companyaddress.invalid" class="text-danger">
+                <div *ngIf="companyaddress.errors && companyaddress.errors['required']">Company Address is required.
                 </div>
 
-    </div>
-    <div class="form-group">
-        <label for="companyaddress" class="form-label mt-2">Company Address</label>
-        <input type="text"
-        name="companyaddress"
-        #companyaddress ="ngModel"
-        class="form-control" 
-        id="companyaddress"
-        [(ngModel)]="register.CompanyAddress"
-            aria-describedby="companyaddress" placeholder=""
-            required
-            >
-            <div *ngIf="companyaddress.invalid" class ="text-danger">
-                <div *ngIf="companyaddress.errors && companyaddress.errors['required']">Company Address is required.</div>
-                
-                </div>
+            </div>
 
-    </div>
-    <div class="form-group">
-        <label for="password" class="form-label mt-2"><strong>Password</strong>
-            <br><ul> <li>Must contain at least 1 lowercase alphabetical character</li>
-                <li>Must contain at least 1 uppercase alphabetical character</li>
-                <li>Must contain at least 1 numeric character</li>
-                <li>Must contain at least one special character</li>
-                <li>Must be eight characters or longer</li>
-                </ul>          
-        </label>
-        <input type="password"
-        name="password"
-        #password="ngModel"
-        class="form-control" id="password" [(ngModel)]="register.Password"
-            aria-describedby="password" placeholder=""
-            required
-            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
-            <div *ngIf="password.invalid" class ="text-danger">
+        </div>
+        <div class="form-group">
+            <label for="password" class="form-label mt-2"><strong>Password</strong>
+                <br>
+                <ul>
+                    <li>Must contain at least 1 lowercase alphabetical character</li>
+                    <li>Must contain at least 1 uppercase alphabetical character</li>
+                    <li>Must contain at least 1 numeric character</li>
+                    <li>Must contain at least one special character</li>
+                    <li>Must be eight characters or longer</li>
+                </ul>
+            </label>
+            <input type="password" name="password" #password="ngModel" class="form-control" id="password"
+                [(ngModel)]="register.Password" aria-describedby="password" placeholder="" required
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+            <div *ngIf="password.invalid" class="text-danger">
                 <div *ngIf="password.errors && password.errors['required']">Password is required.</div>
                 <div *ngIf="password.errors && password.errors['pattern']">Enter a valid password.</div>
                 <!-- <div *ngIf="password.errors && password.errors['minlength']">Enter a valid password.</div> -->
-                </div>
-    
-    
+            </div>
+
+
         </div>
-    <div class="form-group">
-        <label for="confirmpassword" class="form-label mt-2">Confirm Password</label>
-        <input type="password" class="form-control" id="confirmpassword" [(ngModel)]="register.confirmPassword"
-            aria-describedby="confirmpassword" placeholder="">
-    </div>
-    <div class="form-group">
-        <label for="roleid" class="form-label mt-2">Role Id</label>
-        <input type="text"
-        name="roleid"
-        #roleid="ngModel"
-        class="form-control" id="roleid" [(ngModel)]="register.RoleID" aria-describedby="roleid"
-            placeholder="Enter Role ID"
-            required
-            pattern="[0-9]">
-            <div *ngIf="roleid.invalid" class ="text-danger">
+        <div class="form-group">
+            <label for="confirmpassword" class="form-label mt-2">Confirm Password</label>
+            <input type="password" class="form-control" name="confirmpassword" #confirmpassword="ngModel"
+                id="confirmpassword" [(ngModel)]="register.confirmPassword" aria-describedby="confirmpassword"
+                placeholder="" required>
+            <div *ngIf="confirmpassword.invalid" class="text-danger">
+                <div *ngIf="confirmpassword.errors && confirmpassword.errors['required']">Confirm Password.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="roleid" class="form-label mt-2">Role Id</label>
+            <input type="text" name="roleid" #roleid="ngModel" class="form-control" id="roleid"
+                [(ngModel)]="register.RoleID" aria-describedby="roleid" placeholder="Enter Role ID" required
+                pattern="[0-9]">
+            <div *ngIf="roleid.invalid" class="text-danger">
                 <div *ngIf="roleid.errors && roleid.errors['required']">Role ID is required.</div>
                 <div *ngIf="roleid.errors && roleid.errors['pattern']">Enter a valid Role ID.</div>
                 <!-- <div *ngIf="password.errors && password.errors['minlength']">Enter a valid password.</div> -->
-                </div>
-    </div>
-    <!-- <div class="form-group">
+            </div>
+        </div>
+        <!-- <div class="form-group">
         <label for="country" class="form-label mt-2">Country</label>
         <select class="form-control" id="country" [(ngModel)]="register.country">
             <option value="">Select Country</option>
@@ -144,9 +111,9 @@ novalidate
             <input type="radio" name="gender" value="F" [(ngModel)]="register.gender"> Female
         </div>
     </div> -->
-    <div class="form-group">
-        <!-- <button class="btn btn-primary" (click)="registerUser()">Register</button> -->
-        <button class="btn btn-primary" type="submit">Register</button>
+        <div class="form-group">
+            <!-- <button class="btn btn-primary" (click)="registerUser()">Register</button> -->
+            <button class="btn btn-primary" type="submit">Register</button>
+        </div>
     </div>
-</div>
 </form>
