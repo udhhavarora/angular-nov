@@ -1,18 +1,50 @@
+<form name="registerForm"
+#f = "ngForm"
+(ngSubmit)="f.form.valid"
+novalidate
+>
 <div class="container mt-5">
     <div class="form-group">
         <label for="firstname" class="form-label mt-4">First Name</label>
-        <input type="text" class="form-control" id="firstname" [(ngModel)]="register.Firstname"
-            aria-describedby="firstname" placeholder="">
-    </div>
+        <input type="text" class="form-control"
+        name="firstname"
+        #firstname = "ngModel"
+
+        id="firstname" [(ngModel)]="register.Firstname"
+            aria-describedby="firstname" placeholder="" required>
+            <div *ngIf="firstname.invalid" class ="text-danger">
+                <div *ngIf="firstname.errors && firstname.errors['required']">First Name is required.</div>
+                </div>
+    
+    
+        </div>
     <div class="form-group">
         <label for="lastname" class="form-label mt-2">Last Name</label>
         <input type="text" class="form-control" id="lastname" [(ngModel)]="register.Lastname"
-            aria-describedby="lastname" placeholder="">
+            aria-describedby="lastname" placeholder="" required>
+            <div *ngIf="firstname.invalid" class ="text-danger">
+                <div *ngIf="firstname.errors && firstname.errors['required']">Last Name is required.</div>
+                </div>
     </div>
     <div class="form-group">
-        <label for="email" class="form-label mt-2">Enter Email</label>
-        <input type="email" class="form-control" id="email" [(ngModel)]="register.Email" aria-describedby="email"
-            placeholder="">
+        <label for="email"
+         class="form-label mt-2">Enter Email</label>
+        <input type="email" 
+        name="email"
+        #email="ngModel"
+        class="form-control" 
+        id="email" 
+        [(ngModel)]="register.Email"
+         aria-describedby="email"
+            placeholder="Enter Email"
+            required
+            pattern = "^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+            
+            >
+            <div *ngIf="email.invalid" class ="text-danger">
+                <div *ngIf="email.errors && email.errors['required']">Email is required.</div>
+                <div *ngIf="email.errors && email.errors['pattern']">Enter a valid Email.</div>
+                </div>
     </div>
     <div class="form-group">
         <label for="companyname" class="form-label mt-2">Company Name</label>
@@ -59,6 +91,8 @@
         </div>
     </div> -->
     <div class="form-group">
-        <button class="btn btn-primary" (click)="registerUser()">Register</button>
+        <!-- <button class="btn btn-primary" (click)="registerUser()">Register</button> -->
+        <button class="btn btn-primary" type="submit">Register</button>
     </div>
 </div>
+</form>

@@ -1,16 +1,38 @@
+<form name="loginForm" 
+#f="ngForm"
+(ngSubmit)="f.form.valid"
+novalidate
+>
 <div class="container mt-5">
     <div class="form-group">
-        <label for="email" class="form-label mt-4">Email</label>
-        <input type="email" class="form-control" id="email" [(ngModel)] ="logincreds.Email" aria-describedby="username"
-            placeholder="">
+        <label for="username" class="form-label mt-4">UserName</label>
+        <input type="text" class="form-control"
+        name="username"
+        #username="ngModel"
+         id="username" 
+         [(ngModel)]="logincreds.username" 
+         aria-describedby="username"
+            placeholder="Enter Username"
+            required
+            minlength="3"
+            maxlength="10"
+            pattern = "^[a-zA-Z0-9]*$"
+            >
+            <div *ngIf="username.invalid" class ="text-danger">
+                <div *ngIf="username.errors && username.errors['required']">Username is required.</div>
+                <div *ngIf="username.errors && username.errors['minlength']">Username should be minimum of 3 characters.</div>
+                <div *ngIf="username.errors && username.errors['maxlength']">Username should be maximum of 10 characters.</div>
+                <div *ngIf="username.errors && username.errors['pattern']">Username cannot have special characters.</div>
+            </div>
     </div>
     <div class="form-group">
         <label for="password" class="form-label mt-2">Password</label>
         <input type="password" class="form-control" id="password" [(ngModel)] ="logincreds.Password" aria-describedby="password"
-            placeholder="Enter password">
+            placeholder="Enter Password">
     </div>
     <div class="form-group">
-        <button class="btn btn-primary mt-2" (click)="login()">Login</button>
+        <!-- <button class="btn btn-primary mt-2" (click)="login()">Login</button> -->
+        <button type="submit" class="btn btn-primary mt-2" >Submit</button>
     </div>
-
 </div>
+</form>
