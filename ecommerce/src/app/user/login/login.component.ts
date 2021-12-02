@@ -7,6 +7,7 @@ import { DataService } from '../../data.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  loggedIn:boolean=false;
 
   constructor(private dataSvc:DataService) {
     console.log(this.dataSvc.countryList);
@@ -27,6 +28,7 @@ logincreds={
 
 login(){
   //this.dataSvc.login(this.logincreds);
-   console.log("Logged In!");
+  //  console.log("Logged In!");
+  this.loggedIn=true;
 }
 }

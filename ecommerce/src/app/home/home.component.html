@@ -1,12 +1,27 @@
 <div class="container">
-    <p>home works!-1</p>
-    <!-- learning directives -->
-    <p *ngIf="true">home works!-2</p>
 
-    <!-- from component -->
-    <button (click)="onServerStart()">Start Server</button>
+    <p>home works! 1</p>
 
-    <p *ngIf="isServerLive">Server is Live</p>
+    <button *ngIf="!isServerLive" class="btn btn-primary" (click)="onServerStart()">
+        Start server
+    </button>
 
+    <button *ngIf="isServerLive" class="btn btn-primary" (click)="onServerStart()">
+        Stop server
+    </button>
+    <p></p>
+    <p class="display-4 text-success" 
+    *ngIf="isServerLive">{{serverName}} Server is live...</p>
+    <p class=" display-4 text-info" 
+    *ngIf="!isServerLive">{{serverName}} Server is not live...</p>
+    <p></p>
+    <input type="text" [(ngModel)]="serverName">
+<p appServercolor>This is the server status now.</p>
+    <!-- components  -->
+<!-- // structural directives - JS logic  -->
+    <!-- attribute / behavioural directives - CSSS logic -->
+    <!--  -->
+    
+    <!-- *ngIf *ngFor *ngSwitch  -->
 
 </div>
