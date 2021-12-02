@@ -1,1 +1,12 @@
-<p>home works!</p>
+<div class="container">
+    <p>home works!-1</p>
+    <!-- learning directives -->
+    <p *ngIf="true">home works!-2</p>
+
+    <!-- from component -->
+    <button (click)="onServerStart()">Start Server</button>
+
+    <p *ngIf="isServerLive">Server is Live</p>
+
+
+</div>
