@@ -1,5 +1,28 @@
 <div class="container mt-5">
+    
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="firstname" class="form-label mt-4">First Name</label>
+            <input type="text" class="form-control"
+            id="firstname"
+            aria-describedby="firstname" placeholder="Enter First Name"
+            formControlName="firstname">
+            <div *ngIf="registerFormControls['firstname']&& registerFormControls['firstname']['errors']">
+                <div class="text-danger" *ngIf="registerFormControls['firstname']['errors']['required']">First Name is missing.</div>
+              </div>
+            </div>
+            <div class="form-group">
+                <label for="lastname" class="form-label mt-4">Last Name</label>
+                <input type="text" class="form-control"
+                id="lastname"
+                aria-describedby="lastname" placeholder="Enter Last Name"
+                formControlName="lastname">
+                <div *ngIf="registerFormControls['lastname']&& registerFormControls['lastname']['errors']">
+                    <div class="text-danger" *ngIf="registerFormControls['lastname']['errors']['required']">Last Name is missing.</div>
+                  </div>
+                </div>
+
+
         <div class="form-group">
             <label for="email" class="form-label mt-4">Email address</label>
             <input type="text"
@@ -14,10 +37,28 @@
                 <div class="text-danger" *ngIf="registerFormControls['email']['errors']['required']">Email is needed</div>
               </div>
         </div>
+        <div class="form-group">
+            <label for="username" class="form-label mt-4">Username</label>
+            <br>
+                <ul>
+                    <li>Must be of atleast 3 characters.</li>
+                    <li>Only use alphabets & numbers.</li>
+                </ul>
+            <input type="text" class="form-control"
+            id="username"
+            aria-describedby="username" placeholder="Enter Username"
+            formControlName="username">
+            <div *ngIf="registerFormControls['username'] && registerFormControls['username']['errors']">
+                <div class="text-danger" *ngIf="registerFormControls['username']['errors']['required']">Username is missing.</div>
+                <div class="text-danger" *ngIf="registerFormControls['username']['errors']['pattern']">Username is invalid.</div>
+                <div class="text-danger" *ngIf="registerFormControls['username']['errors']['minlength']">Username is too short.</div>
+              
+            </div>
+            </div>
 
 
         <div class="form-group">
-            <button class="btn btn-primary" (click)="registerUser()">Register</button>
+            <button class="btn btn-primary mt-5" (click)="registerUser()">Register</button>
         </div>
     </form>
 </div>
@@ -136,7 +177,7 @@
         </div>
     </div> 
         <div class="form-group">
-            <!-- <button class="btn btn-primary" (click)="registerUser()">Register</button> 
+            <button class="btn btn-primary" (click)="registerUser()">Register</button> 
             <button class="btn btn-primary" type="submit">Register</button>
         </div>
     </div>
