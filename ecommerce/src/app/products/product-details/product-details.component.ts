@@ -1,17 +1,18 @@
-import {Component} from '@angular/core';
+import { Component, Input } from '@angular/core';
 //Metadata of the component
 @Component({
-    selector:'app-product-details',
-    templateUrl:"./product-details.component.html"
+    selector: 'app-product-details',
+    templateUrl: "./product-details.component.html"
 })
 export class ProductDetailsComponent {
-    showToggler=true;
-   productDetails ={
-       name:"",
-       price:0,
-       quantity:0
-   }
-   handleToggle(){
-    this.showToggler =! this.showToggler;
-}
+    showToggler = true;
+    @Input()
+    details = {
+        name: "",
+        price: "",
+        inOrder: ""
+    }
+    handleToggle() {
+        this.showToggler = !this.showToggler;
+    }
 }
